@@ -1,0 +1,37 @@
+[alias]
+    hist = log --pretty=format:'%C(yellow)%h%Creset %ad %C(yellow)|%Creset %s%C(bold blue)%d%Creset %C(red)[%an]%Creset' --graph --date=short
+    gud = "!f() { git add -A; git commit --fixup HEAD; git rebase -i HEAD~2; }; f"
+    go = "!f() { git add -A; git commit; }; f"
+    co = checkout
+    cob = checkout -b
+    ap = add -p
+    an = add -A -N
+    s = status
+[gpg]
+    program = gpg2
+[commit]
+    gpgsign = true
+[core]
+    editor = vim
+    pager = diff-so-fancy | less --tabs=4 -RF
+    excludesfile = ~/.gitignore_global
+[rebase]
+    autosquash = true
+[branch]
+    autosetuprebase = always
+[include]
+    path = ~/.gitconfig.local
+[color]
+    ui = true
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
+[color "diff"]
+    meta = yellow
+    frag = magenta bold
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse

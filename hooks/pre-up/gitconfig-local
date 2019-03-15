@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [ ! -f $HOME/.dotfiles/gitconfig.local ]; then
+    cat <<EOF>> $HOME/.dotfiles/gitconfig.local 
+[user]
+    email =
+    name =
+    signingkey =
+EOF
+fi
