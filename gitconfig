@@ -10,8 +10,6 @@
     br = branch
 [gpg]
     program = gpg2
-[commit]
-    gpgsign = true
 [core]
     editor = vim
     pager = diff-so-fancy | less --tabs=4 -RF
@@ -24,6 +22,10 @@
     path = ~/.gitconfig.local
 [color]
     ui = true
+    branch = always
+    diff = always
+    interactive = always
+    status = always
 [color "diff-highlight"]
     oldNormal = red bold
     oldHighlight = red bold 52
@@ -39,4 +41,4 @@
 [merge]
 	conflictstyle = diff3
 [status]
-	submoduleSummary = true
+    submoduleSummary = true

@@ -115,7 +115,7 @@ if type bat > /dev/null; then
     export BAT_PAGER="less -RF"
 fi
 
-if [[ ! $(git config user.email) ]] || [[ ! $(git config user.name) ]] || [[ ! $(git config user.signingkey) ]]; then
+if [[ ! $(git config user.email) ]] || [[ ! $(git config user.name) ]]; then
    echo "\e[31m~/.gitconfig.local IS NOT CONFIGURED!!\e[0m" 
 fi
 
