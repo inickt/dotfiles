@@ -1,6 +1,6 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = git@github.com:tmux-plugins/tpm.git
-[submodule "bin/diff-so-fancy"]
-	path = bin/diff-so-fancy
-	url = git@github.com:so-fancy/diff-so-fancy.git
+[submodule "zgen"]
+	path = zgen
+	url = git@github.com:tarjoilija/zgen.git

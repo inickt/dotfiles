@@ -57,10 +57,10 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-set laststatus=2
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set laststatus=2
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 let g:python_highlight_all = 1
 
@@ -86,7 +86,7 @@ function! ToggleErrors()
     endif
 endfunction
 
-nnoremap <Leader>e :call ToggleErrors()<Enter>
+" nnoremap <Leader>e :call ToggleErrors()<Enter>
 
 " NERDTree settings
 " Open NERDTree when opening vim
@@ -153,8 +153,8 @@ command Wbd write|bdelete
 
 "Alternative repetition keys (also working in addition to `;` and `,`):
 " repeat the last [count]motion:
-:map <expr> <Space> repmo#LastKey('')|sunmap <Space>
-:map <expr> <BS>    repmo#LastRevKey('')|sunmap <BS>
+" :map <expr> <Space> repmo#LastKey('')|sunmap <Space>
+" :map <expr> <BS>    repmo#LastRevKey('')|sunmap <BS>
 
 "If non-zero, a repetition key like `;` only repeats the last motion for
 "which a count was given.  This used to be the only available option.  
@@ -162,13 +162,13 @@ command Wbd write|bdelete
 :let g:repmo_require_count = 1
 
 " Turn off autocomplete
-let g:jedi#completions_enabled = 0
+" let g:jedi#completions_enabled = 0
 " Have jedi use splits
 let g:jedi#use_splits_not_buffers = "right"
 " Don't show call signatures
-let g:jedi#show_call_signatures = "0"
+" let g:jedi#show_call_signatures = "0"
 " Don't autocomplete imports
-let g:jedi#smart_auto_mappings = 0
+" let g:jedi#smart_auto_mappings = 0
 
 " Prevent bad autotabbing
 autocmd FileType python setlocal indentkeys-=<:>
@@ -195,3 +195,17 @@ noremap <Leader><Bar> :vsplit<cr>
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1 
+
+" To open a new empty buffer
+nmap <leader>t :enew<cr>
+
+" Open last buffer
+nnoremap <BS> <C-^>
+
+" Move to the next buffer
+nnoremap <RIGHT> :bnext<CR>
+nnoremap <LEFT> :bprev<CR>
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
