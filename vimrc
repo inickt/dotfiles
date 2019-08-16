@@ -209,3 +209,6 @@ nnoremap <LEFT> :bprev<CR>
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
+
+" Always start git commit messages on the first line
+autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
