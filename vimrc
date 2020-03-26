@@ -210,5 +210,9 @@ nnoremap <LEFT> :bprev<CR>
 set splitbelow
 set splitright
 
+" make backspace work in more situations
+set backspace=indent,eol,start
+
 " Always start git commit messages on the first line
 autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
+
