@@ -9,6 +9,7 @@
     s = status
     br = branch
     patch = !git -P diff --no-color
+    project = "!f() { basename `git rev-parse --show-toplevel`; }; f"
 [gpg]
     program = gpg2
 [core]

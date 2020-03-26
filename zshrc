@@ -95,6 +95,9 @@ if type k > /dev/null; then
     alias k="k -h"
 fi
 
+# VSCode shortcut
+alias code="vs"
+
 # Make sure git is setup
 if [[ ! $(git config user.email) ]] || [[ ! $(git config user.name) ]]; then
    echo "\e[31m~/.gitconfig.local IS NOT CONFIGURED!!\e[0m" 
