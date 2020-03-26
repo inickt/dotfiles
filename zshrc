@@ -21,17 +21,16 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/git
     zgen oh-my-zsh plugins/python
     zgen oh-my-zsh plugins/autojump
-    zgen oh-my-zsh plugins/aws
     zgen oh-my-zsh plugins/thefuck
     zgen oh-my-zsh plugins/vundle
     zgen oh-my-zsh plugins/urltools
     zgen oh-my-zsh plugins/tmux
     zgen oh-my-zsh plugins/copydir
     zgen oh-my-zsh plugins/copyfile
-    zgen load peterhurford/git-it-on.zsh
+    zgen load 'wfxr/forgit'
+    zgen load valentinocossar/vscode             # aliases for Visual Studio Code
     zgen load supercrabtree/k                    # Better ls with git status
     zgen load zdharma/zsh-diff-so-fancy          # Fancy git diffs
-    zgen load unixorn/autoupdate-zgen            # Auto update zgen/plugins
     zgen load zsh-users/zsh-completions src      # More completions
     zgen load zsh-users/zsh-autosuggestions
     zgen load zsh-users/zsh-syntax-highlighting
@@ -104,5 +103,9 @@ fi
 # Python pretty print by default in REPL
 export PYTHONSTARTUP="$HOME/.pythonstartup"
 
+# macOS specific config
+[[ $OSTYPE == darwin* ]] && source ~/.zshrc.macos
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
