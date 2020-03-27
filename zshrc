@@ -3,7 +3,7 @@ export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 
 ######################### zgen plugin manager ########################
 # Look for changes to zsh config and auto reload plugins
-ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc ${HOME}/.zshrc.local)
+ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc ${HOME}/.zshrc.local ${HOME}/.zshrc.macos)
 
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
