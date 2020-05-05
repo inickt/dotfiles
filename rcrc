@@ -1,2 +1,2 @@
-EXCLUDES="README.md bin"
+EXCLUDES="README.md bin default.bttpreset"
 DOTFILES_DIRS="$HOME/.dotfiles $HOME/.dotfiles-local"
