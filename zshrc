@@ -26,20 +26,20 @@ if ! zgen saved; then
     zgen oh-my-zsh
     zgen oh-my-zsh plugins/git
     zgen oh-my-zsh plugins/python
-    zgen oh-my-zsh plugins/autojump
-    zgen oh-my-zsh plugins/thefuck
     zgen oh-my-zsh plugins/vundle
     zgen oh-my-zsh plugins/urltools
     zgen oh-my-zsh plugins/tmux
     zgen oh-my-zsh plugins/copydir
     zgen oh-my-zsh plugins/copyfile
-    zgen load 'wfxr/forgit'
-    zgen load valentinocossar/vscode             # aliases for Visual Studio Code
-    zgen load supercrabtree/k                    # Better ls with git status
-    zgen load zdharma/zsh-diff-so-fancy          # Fancy git diffs
-    zgen load zsh-users/zsh-completions src      # More completions
+    zgen load agkozak/zsh-z                                 # fast jump
+    zgen load wfxr/forgit
+    zgen load valentinocossar/vscode                        # aliases for Visual Studio Code
+    zgen load supercrabtree/k                               # Better ls with git status
+    zgen load zdharma-continuum/zsh-diff-so-fancy . main    # Fancy git diffs
+    zgen load Aloxaf/fzf-tab
+    zgen load zsh-users/zsh-completions src                 # More completions
     zgen load zsh-users/zsh-autosuggestions
-    zgen load zsh-users/zsh-syntax-highlighting
+    zgen load zdharma-continuum/fast-syntax-highlighting
 
     # Theme
     zgen load woefe/git-prompt.zsh 
@@ -112,4 +112,6 @@ fi
 # Python pretty print by default in REPL
 export PYTHONSTARTUP="$HOME/.pythonstartup"
 
+# set git commit -m highlighting to 72
+FAST_HIGHLIGHT[git-cmsg-len]=72
 
