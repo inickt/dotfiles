@@ -1,9 +1,15 @@
 # If you come from bash you might have to change your $PATH.
 export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 
+# macOS specific config
+[[ $OSTYPE == darwin* ]] && source $HOME/.zshrc.macos
+
+# Local config
+[[ -f $HOME/.zshrc.local ]] && source $HOME/.zshrc.local
+
 ######################### zgen plugin manager ########################
 # Look for changes to zsh config and auto reload plugins
-ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc ${HOME}/.zshrc.local ${HOME}/.zshrc.macos)
+ZGEN_RESET_ON_CHANGE=($HOME/.zshrc $HOME/.zshrc.local $([[ -f $$HOME/.zshrc.macos ]]  && echo $HOME/.zshrc.macos))
 
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
@@ -106,9 +112,4 @@ fi
 # Python pretty print by default in REPL
 export PYTHONSTARTUP="$HOME/.pythonstartup"
 
-# macOS specific config
-[[ $OSTYPE == darwin* ]] && source ~/.zshrc.macos
-
-# Local config
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
