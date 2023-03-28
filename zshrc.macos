@@ -1,4 +1,5 @@
 alias simurl="xcrun simctl openurl booted"
+alias dockspace="defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock"
 
 function macOS_defaults() {
     echo "Loading macOS defaults..."
