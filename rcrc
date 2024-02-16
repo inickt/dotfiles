@@ -1,2 +1,2 @@
-EXCLUDES="README.md bin default.bttpreset"
+EXCLUDES="README.md com.googlecode.iterm2.plist default.bttpreset"
 DOTFILES_DIRS="$HOME/.dotfiles"
