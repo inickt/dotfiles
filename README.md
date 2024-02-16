@@ -11,7 +11,7 @@
 
 - zsh
 - [rcm](https://github.com/thoughtbot/rcm)
-- [thefuck](https://github.com/nvbn/thefuck)
+- [delta](https://github.com/dandavison/delta)
 
 ## Installation
 

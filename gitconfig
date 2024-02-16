@@ -8,20 +8,42 @@
     an = add -A -N
     s = status
     br = branch
-    patch = !git -P diff --no-color
-    project = "!f() { basename `git rev-parse --show-toplevel`; }; f"
-[gpg]
-    program = gpg2
+    # copy diff to clipboard
+    cdiff = !"f() { git -P diff --no-color  $@ | pbcopy; }; f"
+    # paste and apply diff from clipboard
+    pdiff = !"pbpaste | git apply --stat -3 --apply"
+    # project name
+    project = "!basename `git rev-parse --show-toplevel`"
+    # branch name 
+    cb = rev-parse --abbrev-ref HEAD
+    # safer force push
+	pushf = push --force-with-lease --force-if-includes
+    # start git maintenance, but write to local config
+    ms = !"GIT_CONFIG_GLOBAL=~/.gitconfig.local git maintenance start"
+    # change local config
+    lconfig = config --file ~/.gitconfig.local
 [core]
     editor = vim
-    pager = diff-so-fancy | less --tabs=4
+    pager = delta
     excludesfile = ~/.gitignore_global
-[rebase]
-    autosquash = true
-[branch]
-    autosetuprebase = always
+	fsmonitor = true
 [include]
     path = ~/.gitconfig.local
+[rebase]
+    autosquash = true
+	autostash = true
+[rerere]
+	enabled = true
+	autoUpdate = true
+[branch]
+    autosetuprebase = always
+	sort = -committerdate
+[tag]
+	sort = -taggerdate
+[column]
+	ui = auto
+[pager]
+    branch = false
 [color]
     ui = true
     branch = always
@@ -41,9 +63,19 @@
     new = green bold
     whitespace = red reverse
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
 [status]
     submoduleSummary = true
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+    paging = always
+    line-numbers = true
+    true-color = always
+    hyperlinks = true
+[diff]
+    colorMoved = default
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -53,3 +85,11 @@
 	autoSetupRemote = true
 [help]
 	autocorrect = 20
+[fetch]
+	prune = true
+    prunetags = true
+	fsckobjects = true
+[transfer]
+	fsckobjects = true
+[receive]
+	fsckObjects = true
