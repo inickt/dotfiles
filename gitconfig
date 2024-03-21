@@ -1,82 +1,82 @@
 [alias]
-    hist = log --pretty=format:'%C(yellow)%h%Creset %ad %C(yellow)|%Creset %s%C(bold blue)%d%Creset %C(red)[%an]%Creset' --graph --date=short
-    gud = "!f() { local fixee=\"${1:-0}\"; git add -A; git commit --fixup HEAD~${fixee}; git rebase -i HEAD~$(( fixee + 2 )); }; f"
-    go = "!f() { git add -A; git commit; }; f"
-    co = checkout
-    cob = checkout -b
-    ap = add -p
-    an = add -A -N
-    s = status
-    br = branch
-    # copy diff to clipboard
-    cdiff = !"f() { git -P diff --no-color  $@ | pbcopy; }; f"
-    # paste and apply diff from clipboard
-    pdiff = !"pbpaste | git apply --stat -3 --apply"
-    # project name
-    project = "!basename `git rev-parse --show-toplevel`"
-    # branch name 
-    cb = rev-parse --abbrev-ref HEAD
-    # safer force push
+	hist = log --pretty=format:'%C(yellow)%h%Creset %ad %C(yellow)|%Creset %s%C(bold blue)%d%Creset %C(red)[%an]%Creset' --graph --date=short
+	gud = "!f() { local fixee=\"${1:-0}\"; git add -A; git commit --fixup HEAD~${fixee}; git rebase -i HEAD~$(( fixee + 2 )); }; f"
+	go = "!f() { git add -A; git commit; }; f"
+	co = checkout
+	cob = checkout -b
+	ap = add -p
+	an = add -A -N
+	s = status
+	br = branch
+	# copy diff to clipboard
+	cdiff = !"f() { git -P diff --no-color  $@ | pbcopy; }; f"
+	# paste and apply diff from clipboard
+	pdiff = !"pbpaste | git apply --stat -3 --apply"
+	# project name
+	project = "!basename `git rev-parse --show-toplevel`"
+	# branch name 
+	cb = rev-parse --abbrev-ref HEAD
+	# safer force push
 	pushf = push --force-with-lease --force-if-includes
-    # start git maintenance, but write to local config
-    ms = !"GIT_CONFIG_GLOBAL=~/.gitconfig.local git maintenance start"
-    # change local config
-    lconfig = config --file ~/.gitconfig.local
+	# start git maintenance, but write to local config
+	ms = !"GIT_CONFIG_GLOBAL=~/.gitconfig.local git maintenance start"
+	# change local config
+	lconfig = config --file ~/.gitconfig.local
 [core]
-    editor = vim
-    pager = delta
-    excludesfile = ~/.gitignore_global
+	editor = vim
+	pager = delta
+	excludesfile = ~/.gitignore_global
 	fsmonitor = true
 [include]
-    path = ~/.gitconfig.local
+	path = ~/.gitconfig.local
 [rebase]
-    autosquash = true
+	autosquash = true
 	autostash = true
 	updateRefs = true
 [rerere]
 	enabled = true
 	autoUpdate = true
 [branch]
-    autosetuprebase = always
+	autosetuprebase = always
 	sort = -committerdate
 [tag]
 	sort = -taggerdate
 [column]
 	ui = auto
 [pager]
-    branch = false
+	branch = false
 [color]
-    ui = true
-    branch = always
-    diff = always
-    interactive = always
-    status = always
+	ui = true
+	branch = always
+	diff = always
+	interactive = always
+	status = always
 [color "diff-highlight"]
-    oldNormal = red bold
-    oldHighlight = red bold 52
-    newNormal = green bold
-    newHighlight = green bold 22
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
 [color "diff"]
-    meta = yellow
-    frag = magenta bold
-    commit = yellow bold
-    old = red bold
-    new = green bold
-    whitespace = red reverse
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
 [merge]
-    conflictstyle = zdiff3
+	conflictstyle = zdiff3
 [status]
-    submoduleSummary = true
+	submoduleSummary = true
 [interactive]
-    diffFilter = delta --color-only
+	diffFilter = delta --color-only
 [delta]
-    navigate = true
-    paging = always
-    line-numbers = true
-    true-color = always
-    hyperlinks = true
+	navigate = true
+	paging = always
+	line-numbers = true
+	true-color = always
+	hyperlinks = true
 [diff]
-    colorMoved = default
+	colorMoved = default
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -88,7 +88,7 @@
 	autocorrect = 20
 [fetch]
 	prune = true
-    prunetags = true
+	prunetags = true
 	fsckobjects = true
 [transfer]
 	fsckobjects = true

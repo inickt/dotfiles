@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 if [ ! -f $HOME/.dotfiles/gitconfig.local ]; then
-    cat <<EOF>> $HOME/.dotfiles/gitconfig.local 
+	cat <<EOF>> $HOME/.dotfiles/gitconfig.local 
 [user]
-    email =
-    name =
+	email =
+	name =
 EOF
 fi
