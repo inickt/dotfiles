@@ -1,7 +1,15 @@
 [alias]
 	hist = log --pretty=format:'%C(yellow)%h%Creset %ad %C(yellow)|%Creset %s%C(bold blue)%d%Creset %C(red)[%an]%Creset' --graph --date=short
-	gud = "!f() { local fixee=\"${1:-0}\"; git add -A; git commit --fixup HEAD~${fixee}; git rebase -i HEAD~$(( fixee + 2 )); }; f"
-	go = "!f() { git add -A; git commit; }; f"
+	# fixup staged changes to commit
+	fu = "!REV=$(git rev-parse \"$1\") && git commit --fixup $REV && git -c sequence.editor=: rebase -i $REV~ #"
+	# fixup all changes to commit
+	fua = "!git aa && git fu \"$1\" #"
+	# fixup staged changes to HEAD
+	fuh = fu HEAD
+	# fixup all changes to HEAD
+	fuah = fua HEAD
+	# commit all
+	ca = "!git aa && git commit"
 	co = checkout
 	cob = checkout -b
 	aa = add --all
