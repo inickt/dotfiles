@@ -18,6 +18,10 @@
 	an = aa --intent-to-add
 	s = status
 	br = branch
+	r = restore
+	rp = restore --patch
+	sw = switch
+	swb = switch --create
 	# copy diff to clipboard
 	cdiff = !"git --no-pager diff --no-color  \"$@\" | pbcopy; #"
 	# paste and apply diff from clipboard
