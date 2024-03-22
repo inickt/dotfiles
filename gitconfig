@@ -4,16 +4,18 @@
 	go = "!f() { git add -A; git commit; }; f"
 	co = checkout
 	cob = checkout -b
-	ap = add -p
-	an = add -A -N
+	aa = add --all
+	ap = add --patch
+	# add untacked files to index without staging changes
+	an = aa --intent-to-add
 	s = status
 	br = branch
 	# copy diff to clipboard
-	cdiff = !"f() { git -P diff --no-color  $@ | pbcopy; }; f"
+	cdiff = !"git --no-pager diff --no-color  \"$@\" | pbcopy; #"
 	# paste and apply diff from clipboard
 	pdiff = !"pbpaste | git apply --stat -3 --apply"
 	# project name
-	project = "!basename `git rev-parse --show-toplevel`"
+	project = !"basename $(git rev-parse --show-toplevel)"
 	# branch name 
 	cb = rev-parse --abbrev-ref HEAD
 	# safer force push
