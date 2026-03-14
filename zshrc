@@ -63,7 +63,7 @@ if ! zgenom saved; then
     zgenom load romkatv/zsh-no-ps2                            # Disable PS2 for easier editing
 
     # Theme
-    zgenom load woefe/git-prompt.zsh 
+    zgenom load woefe/git-prompt.zsh
 
     # Generate the init script from plugins above
     zgenom save
@@ -140,7 +140,7 @@ if type bat > /dev/null; then
 fi
 
 # Show user readable file sizes by default
-if type k > /dev/null; then       
+if type k > /dev/null; then
     alias k="k -h"
 fi
 
