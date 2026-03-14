@@ -1,9 +1,43 @@
 #!/usr/bin/env bash
 
-if [ ! -f $HOME/.dotfiles/gitconfig.local ]; then
-	cat <<EOF>> $HOME/.dotfiles/gitconfig.local 
-[user]
-	email =
-	name =
-EOF
+set -euo pipefail
+
+config_file="$HOME/.dotfiles/gitconfig.local"
+default_name="Nick Thompson"
+default_email="git@nickt.dev"
+
+get_value() {
+	git config --file "$config_file" --get "$1" 2>/dev/null || true
+}
+
+prompt_for_value() {
+	local key="$1"
+	local prompt="$2"
+	local default="$3"
+	local value=""
+
+	if [ ! -r /dev/tty ] || [ ! -w /dev/tty ]; then
+		git config --file "$config_file" "$key" "$default"
+		return
+	fi
+
+	while [ -z "$value" ]; do
+		printf "%s [%s]: " "$prompt" "$default" > /dev/tty
+		read -r value < /dev/tty
+		if [ -z "$value" ]; then
+			value="$default"
+		fi
+	done
+
+	git config --file "$config_file" "$key" "$value"
+}
+
+touch "$config_file"
+
+if [ -z "$(get_value user.name)" ]; then
+	prompt_for_value user.name "git user.name" "$default_name"
+fi
+
+if [ -z "$(get_value user.email)" ]; then
+	prompt_for_value user.email "git user.email" "$default_email"
 fi
