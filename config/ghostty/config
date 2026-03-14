@@ -14,11 +14,10 @@ macos-icon = xray
 shell-integration = zsh
 shell-integration-features = no-title, no-cursor
 
-# backward delete to start of line
-keybind = cmd+backspace=text:\x15
 # forward delete to end of line
 keybind = cmd+delete=text:\x0B
 # forward delete to end of word
 keybind = opt+delete=esc:d
+
 # temporary find
 keybind = super+f=write_screen_file:open

@@ -8,6 +8,7 @@ HYPHEN_INSENSITIVE=true
 
 # Disable oh-my-zsh tab title, enable only directory name
 DISABLE_AUTO_TITLE=true
+ZSH_TAB_TITLE_DEFAULT_DISABLE_PREFIX=true
 ZSH_TAB_TITLE_ONLY_FOLDER=true
 ZSH_TAB_TITLE_CONCAT_FOLDER_PROCESS=true
 
@@ -24,15 +25,13 @@ FZ_HISTORY_CD_CMD=zshz
 # Disable forgit aliases
 export FORGIT_NO_ALIASES=true
 
-# enable iTerm2 shell integrations
-zstyle :omz:plugins:iterm2 shell-integration yes
 # Lazy load nvm
 zstyle :omz:plugins:nvm lazy yes
 
 # Load zgenom plugin manager
 source "${HOME}/.zgenom/zgenom.zsh"
 
-# Update plugins every 7 days, didable oh-my-zsh updates
+# Update plugins every 7 days, disable oh-my-zsh updates
 zgenom autoupdate
 
 # If the init script doesn't exist, create it
@@ -51,12 +50,6 @@ if ! zgenom saved; then
     zgenom oh-my-zsh plugins/copypath
     zgenom oh-my-zsh plugins/colored-man-pages
     zgenom oh-my-zsh plugins/nvm
-
-    # iTerm2 shell integration and utilities
-    if [[ "$(uname -s)" = Darwin ]]; then
-        zgenom oh-my-zsh plugins/iterm2
-        zgenom bin gnachman/iTerm2-shell-integration --location utilities
-    fi
 
     zgenom load agkozak/zsh-z                                 # fast jump
     zgenom load changyuheng/fz                                # fuzzy fast jump completion
