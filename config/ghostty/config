@@ -1,0 +1,24 @@
+theme = iTerm2 Tango Dark
+font-family = SF Mono
+font-size = 11
+font-thicken = true
+cursor-style = block
+title-report = true
+split-divider-color = #434343
+unfocused-split-opacity = 0.6
+unfocused-split-fill = #050505
+
+macos-titlebar-style = tabs
+macos-icon = xray
+
+shell-integration = zsh
+shell-integration-features = no-title, no-cursor
+
+# backward delete to start of line
+keybind = cmd+backspace=text:\x15
+# forward delete to end of line
+keybind = cmd+delete=text:\x0B
+# forward delete to end of word
+keybind = opt+delete=esc:d
+# temporary find
+keybind = super+f=write_screen_file:open
