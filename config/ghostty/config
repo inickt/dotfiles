@@ -17,6 +17,3 @@ shell-integration-features = no-title, no-cursor
 keybind = cmd+delete=text:\x0B
 # forward delete to end of word
 keybind = opt+delete=esc:d
-
-# temporary find
-keybind = super+f=write_screen_file:open
