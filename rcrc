@@ -1,2 +1,3 @@
 EXCLUDES="README.md default.bttpreset"
 DOTFILES_DIRS="$HOME/.dotfiles"
+SYMLINK_DIRS="zgenom"
